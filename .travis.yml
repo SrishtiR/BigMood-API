@@ -1,0 +1,28 @@
+#use dockerized infrastructure
+sudo: false
+
+#use node_js environment
+language: node_js
+node_js:
+  - "7"
+  - "8"
+  - "9"
+
+services:
+  -docker
+
+env:
+  global:
+    - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
+    - PROJECT_NAME=bigmoodapi
+    - CLUSTER_NAME=standard-cluster-1
+    - CLOUDSDK_COMPUTE_ZONE==us-east1-b
+    - NODE_ENV=CI
+
+install:
+  -npm install
+
+script:
+  - echo "skip tests"
+
+  
